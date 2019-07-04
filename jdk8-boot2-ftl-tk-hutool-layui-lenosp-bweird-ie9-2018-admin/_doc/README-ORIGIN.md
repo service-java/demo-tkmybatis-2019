@@ -38,7 +38,7 @@
 - **待办任务**：个人需要办理的流程任务  
   
 - 如果不喜欢工作流，可以直接删除 len-activiti模块  
-并在len-web/pom.xml、父 pom.xml 删除依赖以及模块，删除application.java 中对activiti的扫描即可完全删除工作流模块。
+并在len-module-admin/pom.xml、父 pom.xml 删除依赖以及模块，删除application.java 中对activiti的扫描即可完全删除工作流模块。
 
 ## 更新说明
 - 18/1/28 **添加工作流模块，前端页面优化，更加有线条**
@@ -61,10 +61,10 @@
 git clone https://gitee.com/bweird/lenosp.git
 mvn clean package
 mvn package
-java -jar len-web.jar
+java -jar len-module-admin.jar
 ```
 - db使用mysql，项目数据库在 根目录db文件夹下，
-导入数据库后 设定数据库用户名密码 在文件lenosp\len-web\src\main\resources\application.yml中
+导入数据库后 设定数据库用户名密码 在文件lenosp\len-module-admin\src\main\resources\application.yml中
 项目开始会报实体类 get set错误，这是正常的，因为本项目entity使用的是 lombok 大大简化了代码量
 您可以直接运行，项目可以正常启动。
 如何消除？

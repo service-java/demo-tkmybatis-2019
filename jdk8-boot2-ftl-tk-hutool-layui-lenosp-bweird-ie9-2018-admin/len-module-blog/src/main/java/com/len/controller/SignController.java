@@ -46,7 +46,7 @@ public class SignController {
     @Autowired
     private RoleUserService roleUserService;
 
-    @Value("${len-blog-api.roles}")
+    @Value("${len-module-blog.roles}")
     private List<String> roles;
 
 
