@@ -9,10 +9,9 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>len-core</artifactId>
+  <artifactId>len-module-sys</artifactId>
 
-
-  <name>len-core</name>
+  <name>len-module-sys</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -20,20 +19,14 @@
   </properties>
 
   <dependencies>
+      <dependency>
+        <groupId>com.len</groupId>
+        <artifactId>len-base-core</artifactId>
+      </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
+      <version>4.12</version>
     </dependency>
-
-    <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
-    <dependency>
-      <groupId>javax.mail</groupId>
-      <artifactId>mail</artifactId>
-      <version>1.5.0-b01</version>
-    </dependency>
-
-
   </dependencies>
 </project>

@@ -10,9 +10,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>len-admin</artifactId>
+    <artifactId>len-app-admin</artifactId>
 
-    <name>len-admin</name>
+    <name>len-app-admin</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 

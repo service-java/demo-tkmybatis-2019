@@ -9,18 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>len-blog</artifactId>
+    <artifactId>len-module-blog</artifactId>
 
 
 
     <dependencies>
         <dependency>
             <groupId>com.len</groupId>
-            <artifactId>len-core</artifactId>
+            <artifactId>len-base-core</artifactId>
         </dependency>
         <dependency>
             <groupId>com.len</groupId>
-            <artifactId>len-sys</artifactId>
+            <artifactId>len-module-sys</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

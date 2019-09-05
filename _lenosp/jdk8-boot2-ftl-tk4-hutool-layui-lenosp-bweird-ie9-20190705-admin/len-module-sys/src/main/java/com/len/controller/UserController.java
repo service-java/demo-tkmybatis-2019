@@ -248,11 +248,12 @@ public class UserController extends BaseController {
     /**
      * 头像上传 目前首先相对路径
      */
-    @PostMapping(value = "upload")
+    @PostMapping(value = "/upload")
     @ResponseBody
     public JsonUtil imgUpload(HttpServletRequest req, @RequestParam("file") MultipartFile file,
                               ModelMap model) {
         String fileName = uploadUtil.upload(file);
+
         JsonUtil j = new JsonUtil();
         j.setMsg(fileName);
         return j;

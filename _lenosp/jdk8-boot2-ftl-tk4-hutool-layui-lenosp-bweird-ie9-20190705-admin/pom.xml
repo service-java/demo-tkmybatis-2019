@@ -20,12 +20,12 @@
   </properties>
 
   <modules>
-    <module>len-core</module>
-    <module>len-sys</module>
-    <module>len-web</module>
-    <module>len-activiti</module>
-    <module>len-blog</module>
-    <module>len-admin</module>
+    <module>len-base-core</module>
+    <module>len-module-sys</module>
+    <module>len-app-web</module>
+    <module>len-module-activiti</module>
+    <module>len-module-blog</module>
+    <module>len-app-admin</module>
   </modules>
 
   <dependencies>
@@ -336,34 +336,34 @@
     <dependencies>
       <dependency>
         <groupId>com.len</groupId>
-        <artifactId>len-core</artifactId>
+        <artifactId>len-base-core</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
 
       <dependency>
         <groupId>com.len</groupId>
-        <artifactId>len-web</artifactId>
+        <artifactId>len-app-web</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
 
       <dependency>
         <groupId>com.len</groupId>
-        <artifactId>len-sys</artifactId>
+        <artifactId>len-module-sys</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.len</groupId>
-        <artifactId>len-activiti</artifactId>
+        <artifactId>len-module-activiti</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.len</groupId>
-        <artifactId>len-blog</artifactId>
+        <artifactId>len-module-blog</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.len</groupId>
-        <artifactId>len-admin</artifactId>
+        <artifactId>len-app-admin</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
     </dependencies>
@@ -387,7 +387,7 @@
         <artifactId>mybatis-generator-maven-plugin</artifactId>
         <version>1.3.6</version>
         <configuration>
-          <configurationFile><!--${basedir}-->len-web/src/main/resources/auto-config/mybatis-config.xml</configurationFile>
+          <configurationFile><!--${basedir}-->len-app-web/src/main/resources/auto-config/mybatis-config.xml</configurationFile>
           <overwrite>true</overwrite>
           <verbose>true</verbose>
         </configuration>

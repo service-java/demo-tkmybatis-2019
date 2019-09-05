@@ -8,8 +8,8 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>len-web</artifactId>
-  <name>len-web Maven Webapp</name>
+  <artifactId>len-app-web</artifactId>
+  <name>len-app-web Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <packaging>jar</packaging>
 
@@ -42,26 +42,26 @@
 
     <dependency>
       <groupId>com.len</groupId>
-      <artifactId>len-core</artifactId>
+      <artifactId>len-base-core</artifactId>
     </dependency>
     <dependency>
       <groupId>com.len</groupId>
-      <artifactId>len-sys</artifactId>
+      <artifactId>len-module-sys</artifactId>
     </dependency>
     <dependency>
       <groupId>com.len</groupId>
-      <artifactId>len-activiti</artifactId>
+      <artifactId>len-module-activiti</artifactId>
     </dependency>
 
     <dependency>
       <groupId>com.len</groupId>
-      <artifactId>len-blog</artifactId>
+      <artifactId>len-module-blog</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
   <build>
-    <finalName>len-web</finalName>
+    <finalName>len-app-web</finalName>
 
       <plugins>
         <plugin>
