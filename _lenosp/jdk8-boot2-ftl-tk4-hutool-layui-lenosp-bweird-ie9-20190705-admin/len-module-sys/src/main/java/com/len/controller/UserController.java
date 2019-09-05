@@ -51,19 +51,19 @@ public class UserController extends BaseController {
     @Autowired
     JobTask task;
 
-    @GetMapping(value = "mainTest")
+    @GetMapping(value = "/mainTest")
     @RequiresPermissions("user:show")
     public String showTest() {
         return "system/user/mainTest";
     }
 
-    @GetMapping(value = "showUser")
+    @GetMapping(value = "/showUser")
     @RequiresPermissions("user:show")
     public String showUser(Model model) {
         return "/system/user/userList";
     }
 
-    @GetMapping(value = "showUserList")
+    @GetMapping(value = "/showUserList")
     @ResponseBody
     @RequiresPermissions("user:show")
     public ReType showUser(Model model, SysUser user, String page, String limit) {
@@ -71,7 +71,7 @@ public class UserController extends BaseController {
     }
 
     @ApiOperation(value = "/listByRoleId", httpMethod = "GET", notes = "展示角色")
-    @GetMapping(value = "listByRoleId")
+    @GetMapping(value = "/listByRoleId")
     @ResponseBody
     @RequiresPermissions("user:show")
     public String showUser(Model model, String roleId, int page, int limit) {
@@ -84,7 +84,7 @@ public class UserController extends BaseController {
     }
 
 
-    @GetMapping(value = "showAddUser")
+    @GetMapping(value = "/showAddUser")
     public String goAddUser(Model model) {
         List<Checkbox> checkboxList = userService.getUserRoleByJson(null);
         model.addAttribute("boxJson", checkboxList);
@@ -93,7 +93,7 @@ public class UserController extends BaseController {
 
     @ApiOperation(value = "/addUser", httpMethod = "POST", notes = "添加用户")
     @Log(desc = "添加用户")
-    @PostMapping(value = "addUser")
+    @PostMapping(value = "/addUser")
     @ResponseBody
     public JsonUtil addUser(SysUser user, String[] role) {
         if (user == null) {
@@ -130,7 +130,7 @@ public class UserController extends BaseController {
         return j;
     }
 
-    @GetMapping(value = "updateUser")
+    @GetMapping(value = "/updateUser")
     public String goUpdateUser(String id, Model model, boolean detail) {
         if (StringUtils.isNotEmpty(id)) {
             //用户-角色
@@ -145,7 +145,7 @@ public class UserController extends BaseController {
 
     @ApiOperation(value = "/updateUser", httpMethod = "POST", notes = "更新用户")
     @Log(desc = "更新用户", type = LOG_TYPE.UPDATE)
-    @PostMapping(value = "updateUser")
+    @PostMapping(value = "/updateUser")
     @ResponseBody
     public JsonUtil updateUser(SysUser user, String role[]) {
         JsonUtil jsonUtil = new JsonUtil();
@@ -189,7 +189,7 @@ public class UserController extends BaseController {
         return userService.delById(id, flag);
     }
 
-    @GetMapping(value = "goRePass")
+    @GetMapping(value = "/goRePass")
     public String goRePass(String id, Model model) {
         if (StringUtils.isEmpty(id)) {
             return "获取账户信息失败";
@@ -208,7 +208,7 @@ public class UserController extends BaseController {
      * @return
      */
     @Log(desc = "修改密码", type = LOG_TYPE.UPDATE)
-    @PostMapping(value = "rePass")
+    @PostMapping(value = "/rePass")
     @ResponseBody
     @RequiresPermissions("user:repass")
     public JsonUtil rePass(String id, String pass, String newPwd) {
@@ -262,7 +262,7 @@ public class UserController extends BaseController {
     /**
      * 验证用户名是否存在
      */
-    @GetMapping(value = "checkUser")
+    @GetMapping(value = "/checkUser")
     @ResponseBody
     public JsonUtil checkUser(String uname, HttpServletRequest req) {
         JsonUtil j = new JsonUtil();

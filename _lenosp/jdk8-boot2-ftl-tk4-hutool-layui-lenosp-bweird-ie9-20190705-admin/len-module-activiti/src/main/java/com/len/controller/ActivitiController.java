@@ -103,7 +103,7 @@ public class ActivitiController extends BaseController {
     /**
      * 同步用户 角色 用户角色到activiti表中
      */
-    @PostMapping(value = "syncdata")
+    @PostMapping(value = "/syncdata")
     @ResponseBody
     public JsonUtil syncdata() {
         JsonUtil j = new JsonUtil();
@@ -145,7 +145,7 @@ public class ActivitiController extends BaseController {
     /**
      * 方法此有所参考 感谢我参考原作者：liuruijie
      */
-    @GetMapping(value = "goActiviti")
+    @GetMapping(value = "/goActiviti")
     public String goActiviti() throws UnsupportedEncodingException {
         Model model = repositoryService.newModel();
 
@@ -183,7 +183,7 @@ public class ActivitiController extends BaseController {
         return "redirect:/static/modeler.html?modelId=" + id;
     }
 
-    @GetMapping(value = "goAct")
+    @GetMapping(value = "/goAct")
     public String goAct(org.springframework.ui.Model model) {
         return "/actList";
     }
@@ -191,7 +191,7 @@ public class ActivitiController extends BaseController {
     /**
      * 部署列表
      */
-    @GetMapping(value = "showAct")
+    @GetMapping(value = "/showAct")
     @ResponseBody
     public ReType showAct(org.springframework.ui.Model model, ProcessDefinition definition,
                           String page, String limit) {
@@ -216,7 +216,7 @@ public class ActivitiController extends BaseController {
     }
 
 
-    @GetMapping(value = "goActModel")
+    @GetMapping(value = "/goActModel")
     public String goActModel(org.springframework.ui.Model model) {
         return "/actModelList";
     }
@@ -224,7 +224,7 @@ public class ActivitiController extends BaseController {
     /**
      * 模型列表
      */
-    @GetMapping(value = "showAm")
+    @GetMapping(value = "/showAm")
     @ResponseBody
     public ReType showModel(org.springframework.ui.Model model, ActModel actModel, String page,
                             String limit) {
@@ -248,7 +248,7 @@ public class ActivitiController extends BaseController {
     /**
      * 发布流程
      */
-    @PostMapping(value = "open")
+    @PostMapping(value = "/open")
     @ResponseBody
     public JsonUtil open(String id) {
         String msg = "发布成功";

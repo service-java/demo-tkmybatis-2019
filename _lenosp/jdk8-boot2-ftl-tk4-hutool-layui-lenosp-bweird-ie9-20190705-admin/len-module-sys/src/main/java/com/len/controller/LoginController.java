@@ -39,30 +39,33 @@ public class LoginController {
     SysUserService userService;
     private static final String CODE_ERROR = "code.error";
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/")
     public String loginInit() {
         return loginCheck();
     }
 
-    @GetMapping(value = "goLogin")
+    @GetMapping(value = "/goLogin")
     public String goLogin(Model model) {
         Subject sub = SecurityUtils.getSubject();
         if (sub.isAuthenticated()) {
             return "/main/main";
-        } else {
-            model.addAttribute("message", "请重新登录");
-            return "/login";
         }
+
+        model.addAttribute("message", "请重新登录");
+        return "/login";
     }
 
     @GetMapping(value = "/login")
     public String loginCheck() {
         Subject sub = SecurityUtils.getSubject();
-        Boolean flag2 = sub.isRemembered();
-        boolean flag = sub.isAuthenticated() || flag2;
-        if (flag) {
+
+        // 登录状态
+        Boolean isRemembered = sub.isRemembered();
+        boolean hasAuth = sub.isAuthenticated() || isRemembered;
+        if (hasAuth) {
             return "/main/main";
         }
+
         return "/login";
     }
 
@@ -134,6 +137,7 @@ public class LoginController {
             //生成图片
             int w = 146, h = 33;
             VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

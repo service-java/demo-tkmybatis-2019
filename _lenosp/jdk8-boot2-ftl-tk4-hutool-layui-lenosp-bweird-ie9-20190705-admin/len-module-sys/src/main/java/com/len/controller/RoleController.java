@@ -42,14 +42,14 @@ public class RoleController extends BaseController {
     @Autowired
     private RoleMenuService roleMenuService;
 
-    @GetMapping(value = "showRole")
+    @GetMapping(value = "/showRole")
     @RequiresPermissions(value = "role:show")
     public String showRole(Model model) {
         return "/system/role/roleList";
     }
 
     @ApiOperation(value = "/showRoleList", httpMethod = "GET", notes = "展示角色")
-    @GetMapping(value = "showRoleList")
+    @GetMapping(value = "/showRoleList")
     @ResponseBody
     @RequiresPermissions("role:show")
     public ReType showRoleList(SysRole role, Model model, String page, String limit) {
@@ -57,7 +57,7 @@ public class RoleController extends BaseController {
     }
 
     @ApiOperation(value = "/showaLLRoleList", httpMethod = "GET", notes = "展示角色")
-    @GetMapping(value = "showaLLRoleList")
+    @GetMapping(value = "/showaLLRoleList")
     @ResponseBody
     @RequiresPermissions("role:show")
     public String showRoleList(SysRole role, Model model) {
@@ -65,7 +65,7 @@ public class RoleController extends BaseController {
     }
 
 
-    @GetMapping(value = "showAddRole")
+    @GetMapping(value = "/showAddRole")
     public String goAddRole(Model model) {
         JSONArray jsonArray = menuService.getTreeUtil(null);
         model.addAttribute("menus", jsonArray.toJSONString());
@@ -74,7 +74,7 @@ public class RoleController extends BaseController {
 
     @ApiOperation(value = "/addRole", httpMethod = "POST", notes = "添加角色")
     @Log(desc = "添加角色")
-    @PostMapping(value = "addRole")
+    @PostMapping(value = "/addRole")
     @ResponseBody
     public JsonUtil addRole(SysRole sysRole, String[] menus) {
         if (StringUtils.isEmpty(sysRole.getRoleName())) {
@@ -83,7 +83,7 @@ public class RoleController extends BaseController {
         return roleService.addRole(sysRole, menus);
     }
 
-    @GetMapping(value = "updateRole")
+    @GetMapping(value = "/updateRole")
     public String updateRole(String id, Model model, boolean detail) {
         if (StringUtils.isNotEmpty(id)) {
             SysRole role = roleService.selectByPrimaryKey(id);
@@ -97,7 +97,7 @@ public class RoleController extends BaseController {
 
     @ApiOperation(value = "/updateRole", httpMethod = "POST", notes = "更新角色")
     @Log(desc = "更新角色")
-    @PostMapping(value = "updateRole")
+    @PostMapping(value = "/updateRole")
     @ResponseBody
     public JsonUtil updateUser(SysRole role, String[] menus) {
         if (role == null) {
@@ -108,7 +108,7 @@ public class RoleController extends BaseController {
 
     @ApiOperation(value = "/del", httpMethod = "POST", notes = "删除角色")
     @Log(desc = "删除角色", type = LOG_TYPE.DEL)
-    @PostMapping(value = "del")
+    @PostMapping(value = "/del")
     @ResponseBody
     @RequiresPermissions("role:del")
     public JsonUtil del(String id) {

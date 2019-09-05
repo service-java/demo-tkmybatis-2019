@@ -42,7 +42,7 @@ public class MenuController extends BaseController {
      * @return
      */
     @ApiOperation(value = "/showMenu", httpMethod = "GET", notes = "展示菜单")
-    @GetMapping(value = "showMenu")
+    @GetMapping(value = "/showMenu")
     @RequiresPermissions("menu:show")
     public String showMenu(Model model) {
         JSONArray ja = menuService.getMenuJsonList();
@@ -50,7 +50,7 @@ public class MenuController extends BaseController {
         return "/system/menu/menuList";
     }
 
-    @GetMapping(value = "showAddMenu")
+    @GetMapping(value = "/showAddMenu")
     public String addMenu(Model model) {
         JSONArray ja = menuService.getMenuJsonList();
         model.addAttribute("menus", ja.toJSONString());
@@ -59,7 +59,7 @@ public class MenuController extends BaseController {
 
     @Log(desc = "添加菜单", type = LOG_TYPE.UPDATE)
     @ApiOperation(value = "/addMenu", httpMethod = "POST", notes = "添加菜单")
-    @PostMapping(value = "addMenu")
+    @PostMapping(value = "/addMenu")
     @ResponseBody
     public JsonUtil addMenu(SysMenu sysMenu, Model model) {
         JsonUtil jsonUtil = new JsonUtil();
@@ -91,7 +91,7 @@ public class MenuController extends BaseController {
         return jsonUtil;
     }
 
-    @GetMapping(value = "showUpdateMenu")
+    @GetMapping(value = "/showUpdateMenu")
     public String showUpdateMenu(Model model, String id) {
         SysMenu sysMenu = menuService.selectByPrimaryKey(id);
         JSONArray ja = menuService.getMenuJsonList();
@@ -106,7 +106,7 @@ public class MenuController extends BaseController {
 
 
     @Log(desc = "更新菜单", type = LOG_TYPE.ADD)
-    @PostMapping(value = "updateMenu")
+    @PostMapping(value = "/updateMenu")
     @ResponseBody
     public JsonUtil updateMenu(SysMenu sysMenu) {
         SysMenu oldMenu = menuService.selectByPrimaryKey(sysMenu.getId());

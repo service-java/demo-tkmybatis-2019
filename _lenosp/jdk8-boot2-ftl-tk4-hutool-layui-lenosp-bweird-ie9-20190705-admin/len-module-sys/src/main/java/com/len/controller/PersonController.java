@@ -49,7 +49,7 @@ public class PersonController {
 
     @ApiOperation(value = "/updateUser", httpMethod = "POST", notes = "更新用户")
     @Log(desc = "更新用户", type = Log.LOG_TYPE.UPDATE)
-    @PostMapping(value = "updateUser")
+    @PostMapping(value = "/updateUser")
     @ResponseBody
     public JsonUtil updatePerson(SysUser user) {
         JsonUtil jsonUtil = new JsonUtil();

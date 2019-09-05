@@ -101,23 +101,23 @@ public class UserLeaveController extends BaseController {
     private String leaveOpinionList = "leaveOpinionList";
 
 
-    @GetMapping(value = "showMain")
+    @GetMapping(value = "/showMain")
     public String showMain(Model model) {
         return "/dashboard/dashboard";
     }
 
 
-    @GetMapping(value = "showMain2")
+    @GetMapping(value = "/showMain2")
     public String showMain2(Model model) {
         return "/dashboard/dashboard2";
     }
 
-    @GetMapping(value = "showLeave")
+    @GetMapping(value = "/showLeave")
     public String showUser(Model model) {
         return "/act/leave/leaveList";
     }
 
-    @GetMapping(value = "showLeaveList")
+    @GetMapping(value = "/showLeaveList")
     @ResponseBody
     public ReType showLeaveList(Model model, UserLeave userLeave, String page, String limit) {
         String userId = CommonUtil.getUser().getId();
@@ -260,12 +260,12 @@ public class UserLeaveController extends BaseController {
     /**
      * ---------我的任务---------
      */
-    @GetMapping(value = "showTask")
+    @GetMapping(value = "/showTask")
     public String showTask(Model model) {
         return "/act/task/taskList";
     }
 
-    @GetMapping(value = "showTaskList")
+    @GetMapping(value = "/showTaskList")
     @ResponseBody
     public String showTaskList(Model model, com.len.entity.Task task, String page, String limit) {
         CurrentUser user = CommonUtil.getUser();
