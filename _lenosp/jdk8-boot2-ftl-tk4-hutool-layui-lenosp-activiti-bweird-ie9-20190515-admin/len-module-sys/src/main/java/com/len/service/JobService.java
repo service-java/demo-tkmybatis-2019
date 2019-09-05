@@ -10,10 +10,11 @@ import com.len.util.JsonUtil;
  * @date 2018/1/6.
  * @email 154040976@qq.com
  */
-public interface JobService extends BaseService<SysJob,String> {
+public interface JobService extends BaseService<SysJob, String> {
 
     /**
      * 更新
+     *
      * @param job
      * @return
      */
@@ -21,6 +22,7 @@ public interface JobService extends BaseService<SysJob,String> {
 
     /**
      * 删除
+     *
      * @param id
      * @return
      */
@@ -28,6 +30,7 @@ public interface JobService extends BaseService<SysJob,String> {
 
     /**
      * 启动任务
+     *
      * @param id
      * @return
      */
@@ -35,6 +38,7 @@ public interface JobService extends BaseService<SysJob,String> {
 
     /**
      * 停止任务
+     *
      * @param id
      * @return
      */

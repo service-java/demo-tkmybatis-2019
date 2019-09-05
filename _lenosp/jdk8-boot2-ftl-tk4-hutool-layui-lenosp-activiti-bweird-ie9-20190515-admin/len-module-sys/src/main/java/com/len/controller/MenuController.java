@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @RequestMapping("/menu")
 @Controller
-@Api(value = "菜单管理",description="菜单业务处理")
+@Api(value = "菜单管理", description = "菜单业务处理")
 public class MenuController extends BaseController {
 
     @Autowired

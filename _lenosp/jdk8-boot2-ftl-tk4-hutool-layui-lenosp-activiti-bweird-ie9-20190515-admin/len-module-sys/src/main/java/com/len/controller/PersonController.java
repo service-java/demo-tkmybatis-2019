@@ -27,7 +27,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/person")
-@Api(value = "个人业务",description="个人业务处理")
+@Api(value = "个人业务", description = "个人业务处理")
 public class PersonController {
 
     @Autowired

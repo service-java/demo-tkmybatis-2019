@@ -45,6 +45,8 @@ public class LoginRealm extends AuthorizingRealm {
         CurrentUser user = (CurrentUser) principalCollection.getPrimaryPrincipal();
         Set<String> realmNames = principalCollection.getRealmNames();
         List<String> realmNameList = new ArrayList<>(realmNames);
+
+        // 博客系统前后端分离
         if ("BlogLogin".equals(realmNameList.get(0))) {
             String[] roles = JWTUtil.getRoles(user.getUsername());
             assert roles != null;
@@ -52,7 +54,7 @@ public class LoginRealm extends AuthorizingRealm {
                 info.addRole(role);
             }
         } else {
-            //根据用户获取角色 根据角色获取所有按钮权限
+            // 根据用户获取角色 根据角色获取所有按钮权限
             CurrentUser cUser = (CurrentUser) Principal.getSession().getAttribute("currentPrincipal");
             for (CurrentRole cRole : cUser.getCurrentRoleList()) {
                 info.addRole(cRole.getId());
@@ -79,19 +81,24 @@ public class LoginRealm extends AuthorizingRealm {
             throws AuthenticationException {
         String username = (String) authenticationToken.getPrincipal();
         SysUser s = null;
+
         try {
             s = userService.login(username);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         if (s == null) {
             throw new UnknownAccountException("账户密码不正确");
         }
-        CurrentUser user=new CurrentUser();
-        BeanUtil.copyNotNullBean(s,user);
+
+        CurrentUser user = new CurrentUser();
+        BeanUtil.copyNotNullBean(s, user);
+        // 密码不显示
         user.setPassword(null);
         userService.setMenuAndRoles(username);
         ByteSource byteSource = ByteSource.Util.bytes(username);
+
         return new SimpleAuthenticationInfo(user, s.getPassword(), byteSource, getName());
     }
 }

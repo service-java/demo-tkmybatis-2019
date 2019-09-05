@@ -21,7 +21,7 @@ public interface BlogArticleService extends BaseService<BlogArticle, String> {
 
     public JsonUtil getDetail(String code);
 
-    public JsonUtil detail(String code,String ip);
+    public JsonUtil detail(String code, String ip);
 
     List<Article> selectArticle(String code);
 
@@ -33,6 +33,6 @@ public interface BlogArticleService extends BaseService<BlogArticle, String> {
 
     boolean addArticle(ArticleDetail articleDetail);
 
-    boolean updateArticle(Article article,List<String> categoryIds,List<String> tags);
+    boolean updateArticle(Article article, List<String> categoryIds, List<String> tags);
 
 }

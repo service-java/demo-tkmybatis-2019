@@ -23,6 +23,7 @@ public class Principal {
 
     /**
      * 获取当前用户对象
+     *
      * @return
      */
     public static CurrentUser getPrincipal() {
@@ -31,6 +32,7 @@ public class Principal {
 
     /**
      * 当前session
+     *
      * @return
      */
     public static Session getSession() {
