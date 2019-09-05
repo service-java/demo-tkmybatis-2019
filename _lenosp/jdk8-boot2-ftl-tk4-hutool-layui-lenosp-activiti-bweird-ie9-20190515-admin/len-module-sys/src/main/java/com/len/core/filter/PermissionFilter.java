@@ -49,6 +49,7 @@ public class PermissionFilter extends AuthorizationFilter {
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response)
             throws IOException {
         saveRequest(request);
+
         WebUtils.issueRedirect(request, response, "/goLogin");
         return false;
     }

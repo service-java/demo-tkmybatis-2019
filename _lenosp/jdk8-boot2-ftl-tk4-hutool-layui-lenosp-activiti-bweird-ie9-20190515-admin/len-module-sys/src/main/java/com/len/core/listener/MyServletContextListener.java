@@ -1,4 +1,4 @@
-package com.len.core.BootListener;
+package com.len.core.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

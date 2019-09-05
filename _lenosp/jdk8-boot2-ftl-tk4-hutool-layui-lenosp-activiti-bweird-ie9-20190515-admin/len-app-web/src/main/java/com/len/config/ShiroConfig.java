@@ -3,7 +3,7 @@ package com.len.config;
 import com.len.core.BlogRealm;
 import com.len.core.MyBasicHttpAuthenticationFilter;
 import com.len.core.filter.PermissionFilter;
-import com.len.core.filter.VerfityCodeFilter;
+import com.len.core.filter.VerifyCodeFilter;
 import com.len.core.shiro.LoginRealm;
 import com.len.core.shiro.RetryLimitCredentialsMatcher;
 import org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy;
@@ -115,8 +115,8 @@ public class ShiroConfig {
     }
 
     @Bean
-    public VerfityCodeFilter getVerfityCodeFilter() {
-        VerfityCodeFilter vf = new VerfityCodeFilter();
+    public VerifyCodeFilter getVerfityCodeFilter() {
+        VerifyCodeFilter vf = new VerifyCodeFilter();
         vf.setFailureKeyAttribute("shiroLoginFailure");
         vf.setJcaptchaParam("code");
         vf.setVerfitiCode(true);

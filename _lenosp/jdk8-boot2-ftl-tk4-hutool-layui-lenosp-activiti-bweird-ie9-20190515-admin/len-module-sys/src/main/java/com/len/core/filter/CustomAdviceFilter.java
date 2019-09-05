@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @email 154040976@qq.com
  * 自定义拦截器 暂时不用
  */
-public class CustomAdvicFilter extends FormAuthenticationFilter {
+public class CustomAdviceFilter extends FormAuthenticationFilter {
 
     @Autowired
     private SysUserService userService;

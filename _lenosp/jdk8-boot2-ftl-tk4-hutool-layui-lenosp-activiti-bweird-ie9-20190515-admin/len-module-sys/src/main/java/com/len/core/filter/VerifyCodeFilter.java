@@ -14,7 +14,7 @@ import org.apache.shiro.web.filter.AccessControlFilter;
  * <p>
  * 验证码拦截
  */
-public class VerfityCodeFilter extends AccessControlFilter {
+public class VerifyCodeFilter extends AccessControlFilter {
     /**
      * 是否开启验证码验证   默认true
      */
@@ -51,6 +51,7 @@ public class VerfityCodeFilter extends AccessControlFilter {
 
     @Override
     protected boolean onAccessDenied(ServletRequest servletRequest, ServletResponse servletResponse) throws Exception {
+        // code.error 作为验证失败的标志
         servletRequest.setAttribute(failureKeyAttribute, "code.error");
         return true;
     }

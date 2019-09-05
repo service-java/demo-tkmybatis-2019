@@ -53,11 +53,13 @@
       <artifactId>len-module-activiti</artifactId>
     </dependency>
 
+    <!--  这个项目直接整合进去了博客模块的部分代码，导致这一块现在不能移除 @bad -->
     <dependency>
       <groupId>com.len</groupId>
       <artifactId>len-module-blog</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
+
   </dependencies>
 
   <build>
