@@ -1,6 +1,6 @@
 package test;
 
-import com.len.Application;
+import com.len.WebApplication;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.List;
@@ -31,7 +31,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
  * 网关
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = Application.class)
+@SpringBootTest(classes = WebApplication.class)
 @WebAppConfiguration
 public class ActivitiGateWay {
 

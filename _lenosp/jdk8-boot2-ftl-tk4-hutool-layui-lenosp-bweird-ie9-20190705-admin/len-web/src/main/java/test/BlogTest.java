@@ -1,6 +1,6 @@
 package test;
 
-import com.len.Application;
+import com.len.WebApplication;
 import com.len.entity.BlogCategory;
 import com.len.service.ArticleCategoryService;
 import com.len.service.BlogCategoryService;
@@ -24,7 +24,7 @@ import java.util.UUID;
  * @email 154040976@qq.com
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = Application.class)
+@SpringBootTest(classes = WebApplication.class)
 @WebAppConfiguration
 public class BlogTest {
 

@@ -22,7 +22,7 @@ public class RoleUserServiceImpl extends BaseServiceImpl<SysRoleUser,String> imp
   private SysRoleUserMapper sysRoleUserMapper;
 
   @Override
-  public BaseMapper<SysRoleUser, String> getMappser() {
+  public BaseMapper<SysRoleUser, String> getMapper() {
     return sysRoleUserMapper;
   }
 

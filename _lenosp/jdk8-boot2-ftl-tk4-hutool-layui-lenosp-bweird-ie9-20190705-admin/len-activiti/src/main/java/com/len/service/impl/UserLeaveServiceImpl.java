@@ -21,7 +21,7 @@ public class UserLeaveServiceImpl extends BaseServiceImpl<UserLeave,String> impl
   UserLeaveMapper userLeaveMapper;
 
   @Override
-  public BaseMapper<UserLeave,String> getMappser() {
+  public BaseMapper<UserLeave,String> getMapper() {
     return userLeaveMapper;
   }
 }

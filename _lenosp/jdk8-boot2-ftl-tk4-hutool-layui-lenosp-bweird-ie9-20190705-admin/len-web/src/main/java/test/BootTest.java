@@ -1,6 +1,6 @@
 package test;
 
-import com.len.Application;
+import com.len.WebApplication;
 import com.len.entity.SysUser;
 import com.len.redis.RedisService;
 import com.len.service.SysUserService;
@@ -17,7 +17,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
  * @email 154040976@qq.com
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = Application.class)
+@SpringBootTest(classes = WebApplication.class)
 @WebAppConfiguration
 public class BootTest {
 
