@@ -257,11 +257,12 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser, String> impleme
         CurrentUser principal = Principal.getPrincipal();
         if (principal.getId().equals(sysUser.getId())) {
             //当前用户
-            CurrentUser currentUse = Principal.getCurrentUse();
+            CurrentUser currentUse = Principal.getCurrentUser();
             Session session = Principal.getSession();
+            // 更新图片
             currentUse.setPhoto(sysUser.getPhoto());
-            session.setAttribute("currentPrincipal", currentUse);
 
+            session.setAttribute("currentPrincipal", currentUse);
         }
     }
 }

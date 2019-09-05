@@ -79,7 +79,7 @@ public class BlogAdminController {
         int serverPort = request.getServerPort();
         int i = requestURL.indexOf(String.valueOf(serverPort));
         String url = requestURL.substring(0, i);
-        json.setData(url + String.valueOf(serverPort) + "/img/" + path);
+        json.setData(url + String.valueOf(serverPort) + "/images/" + path);
         json.setFlag(true);
         return json;
     }

@@ -70,13 +70,14 @@ pagehelper:
     params: count=countSql
 
 lenosp:
-  uploadPath: ./file/
+  # 这个功能好像并没实现
   isDayType: false
-
-  imagePath: ./image/
+  uploadPath: d:/lenosp/file/
+  # 注意 要带上末尾的斜杠 '/'
+  imagePath: d:/lenosp/images/
 
 logging:
-  file: ./logs/lenosp-log.log
+  file: d:/lenosp/logs/lenosp-log.log
   level:
     com.len.mapper: debug
 
