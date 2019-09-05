@@ -35,9 +35,11 @@ import javax.servlet.http.HttpSession;
 @Api(value = "登录业务",description="登录校验处理")
 public class LoginController {
 
+    private static final String CODE_ERROR = "code.error";
+
     @Autowired
     SysUserService userService;
-    private static final String CODE_ERROR = "code.error";
+
 
     @GetMapping(value = "/")
     public String loginInit() {
@@ -79,14 +81,19 @@ public class LoginController {
      */
     @ApiOperation(value = "/login", httpMethod = "POST", notes = "登录method")
     @PostMapping(value = "/login")
-    public String login(SysUser user, Model model, String rememberMe, HttpServletRequest request) {
+    public String login(SysUser user, String rememberMe, Model model,  HttpServletRequest request) {
         String codeMsg = (String) request.getAttribute("shiroLoginFailure");
         if (CODE_ERROR.equals(codeMsg)) {
             model.addAttribute("message", "验证码错误");
             return "/login";
         }
-        CustomUsernamePasswordToken token = new CustomUsernamePasswordToken(user.getUsername().trim(),
-                user.getPassword(), "UserLogin");
+
+        CustomUsernamePasswordToken token = new CustomUsernamePasswordToken(
+            user.getUsername().trim(),
+            user.getPassword(),
+            "UserLogin"
+        );
+
         Subject subject = Principal.getSubject();
         String msg = null;
         try {

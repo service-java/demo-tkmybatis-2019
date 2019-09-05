@@ -22,14 +22,13 @@
   <modules>
     <module>len-base-core</module>
     <module>len-module-sys</module>
-    <module>len-app-web</module>
     <module>len-module-activiti</module>
     <module>len-module-blog</module>
     <module>len-app-admin</module>
+    <module>len-app-web</module>
   </modules>
 
   <dependencies>
-
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -41,10 +40,12 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
     </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -63,6 +64,7 @@
       <version>2.0.4</version>
     </dependency>
 
+    <!-- tk.myabtis 4.0.4 -->
     <dependency>
       <groupId>tk.mybatis</groupId>
       <artifactId>mapper</artifactId>
@@ -95,8 +97,6 @@
       <artifactId>spring-boot-starter-data-redis</artifactId>
       <version>2.0.1.RELEASE</version>
     </dependency>
-
-
 
 
     <!--Mysql数据库驱动-->
