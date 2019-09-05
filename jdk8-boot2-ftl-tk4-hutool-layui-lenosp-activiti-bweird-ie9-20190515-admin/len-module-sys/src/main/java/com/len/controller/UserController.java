@@ -5,9 +5,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.len.base.BaseController;
+import com.len.base.CurrentUser;
 import com.len.core.annotation.Log;
 import com.len.core.annotation.Log.LOG_TYPE;
 import com.len.core.quartz.JobTask;
+import com.len.core.shiro.Principal;
 import com.len.entity.SysRoleUser;
 import com.len.entity.SysUser;
 import com.len.exception.MyException;
@@ -26,6 +28,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import tk.mybatis.mapper.entity.Condition;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -256,9 +259,17 @@ public class UserController extends BaseController {
                               ModelMap model) {
         String fileName = uploadUtil.upload(file);
 
-        JsonUtil j = new JsonUtil();
-        j.setMsg(fileName);
-        return j;
+        JsonUtil res = new JsonUtil();
+        res.setMsg(fileName);
+
+        // 更新图片
+        CurrentUser currentUser = Principal.getCurrentUser();
+        SysUser sysUser = new SysUser();
+        sysUser.setId(currentUser.getId());
+        sysUser.setPhoto(fileName);
+        userService.updateByPrimaryKeySelective(sysUser);
+
+        return res;
     }
 
     /**

@@ -86,7 +86,7 @@ public class LogAspect {
 
         log.setParam(buffer.toString());
         try {
-            CurrentUser currentUser = Principal.getCurrentUse();
+            CurrentUser currentUser = Principal.getCurrentUser();
             log.setUserName(currentUser.getUsername());
         } catch (UnavailableSecurityManagerException e) {
 

@@ -68,16 +68,16 @@ public class UploadUtil {
     public LoadType fileNameStyle(MultipartFile multipartFile) {
         String curr = multipartFile.getOriginalFilename();
         int suffixLen = curr.lastIndexOf(".");
-        boolean flag = false;
-        int index = -1;
-        if ("blob".equals(curr)) {
-            flag = true;
-            index = 0;
-            curr = UUID.randomUUID() + ".png";
+        boolean flag=false;
+        int index=-1;
+        if("blob".equals(curr)){
+            flag=true;
+            index=0;
+            curr=UUID.randomUUID() + ".png";
         } else if (suffixLen == -1) {
             throw new MyException("文件获取异常");
         }
-        if (!flag) {
+        if(!flag){
             String suffix = curr.substring(suffixLen, curr.length());
             index = Arrays.binarySearch(IMAGE_SUFFIX.split(","),
                     suffix.replace(".", ""));
@@ -87,8 +87,9 @@ public class UploadUtil {
         LoadType loadType = new LoadType();
         loadType.setFileName(curr);
         //image 情况
-        curr = StringUtils.isEmpty(imagePath) || index == -1 ?
-                uploadPath + File.separator + curr : imagePath + File.separator + curr;
+        curr = (StringUtils.isEmpty(imagePath) || index == -1)
+                ? uploadPath + File.separator + curr
+                : imagePath + File.separator + curr;
         loadType.setCurrentFile(new File(curr));
         return loadType;
     }

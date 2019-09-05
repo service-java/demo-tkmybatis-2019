@@ -339,7 +339,7 @@ public class UserLeaveController extends BaseController {
     public JsonUtil complete(LeaveOpinion op, HttpServletRequest request) {
         Map<String, Object> variables = taskService.getVariables(op.getTaskId());
 
-        CurrentUser user = Principal.getCurrentUse();
+        CurrentUser user = Principal.getCurrentUser();
         op.setCreateTime(new Date());
         op.setOpId(user.getId());
         op.setOpName(user.getRealName());

@@ -39,7 +39,7 @@ public class Principal {
         return getSubject().getSession();
     }
 
-    public static CurrentUser getCurrentUse() {
+    public static CurrentUser getCurrentUser() {
         return (CurrentUser) getSession().getAttribute("currentPrincipal");
     }
 

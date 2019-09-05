@@ -140,13 +140,19 @@ public class ShiroConfig {
         filterMap.put("/getCode", "anon");
         filterMap.put("/actuator/**", "anon");
         filterMap.put("/eureka/**", "anon");
-        filterMap.put("/img/**", "anon");
+
+        // 图片与文件不拦截??
+        filterMap.put("/images/**", "anon");
+//        filterMap.put("/img/**", "anon");
+        filterMap.put("/file/**", "anon");
+
         filterMap.put("/logout", "logout");
         filterMap.put("/plugin/**", "anon");
         filterMap.put("/user/**", "per");
         filterMap.put("/blog-admin/**", "jwt");
         filterMap.put("/blog/**", "anon");
         filterMap.put("/**", "authc");
+
         sfb.setFilterChainDefinitionMap(filterMap);
         return sfb;
     }
