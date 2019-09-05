@@ -22,8 +22,10 @@ import com.len.util.BeanUtil;
 import com.len.util.Checkbox;
 import com.len.util.JsonUtil;
 import com.len.util.Md5Util;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
@@ -208,16 +210,17 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser, String> impleme
     }
 
 
-
     @Override
     public void setMenuAndRoles(String username) {
         SysUser s = new SysUser();
         s.setUsername(username);
         s = this.selectOne(s);
+
         CurrentUser currentUser = new CurrentUser(s.getId(), s.getUsername(), s.getAge(), s.getEmail(), s.getPhoto(), s.getRealName());
         Subject subject = Principal.getSubject();
+
         /*角色权限封装进去*/
-        //根据用户获取菜单
+        // 根据用户获取菜单
         Session session = subject.getSession();
 
         List<SysMenu> menuList = menuService.getUserMenu(s.getId());
@@ -241,6 +244,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser, String> impleme
             BeanUtil.copyNotNullBean(r, role);
             currentRoleList.add(role);
         }
+
         currentUser.setCurrentRoleList(currentRoleList);
         currentUser.setCurrentMenuList(currentMenuList);
         session.setAttribute("currentPrincipal", currentUser);
@@ -252,12 +256,12 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser, String> impleme
     @Override
     public void updateCurrent(SysUser sysUser) {
         CurrentUser principal = Principal.getPrincipal();
-        if(principal.getId().equals(sysUser.getId())){
+        if (principal.getId().equals(sysUser.getId())) {
             //当前用户
             CurrentUser currentUse = Principal.getCurrentUse();
-            Session session=Principal.getSession();
+            Session session = Principal.getSession();
             currentUse.setPhoto(sysUser.getPhoto());
-            session.setAttribute("currentPrincipal",currentUse);
+            session.setAttribute("currentPrincipal", currentUse);
 
         }
     }

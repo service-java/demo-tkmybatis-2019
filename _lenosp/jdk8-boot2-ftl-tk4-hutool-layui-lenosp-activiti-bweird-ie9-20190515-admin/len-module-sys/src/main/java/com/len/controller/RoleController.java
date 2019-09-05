@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping(value = "/role")
-@Api(value = "用户角色管理",description="角色业务处理")
+@Api(value = "用户角色管理", description = "角色业务处理")
 public class RoleController extends BaseController {
 
     @Autowired

@@ -19,7 +19,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableWebMvc
 @SpringBootApplication
 @EnableTransactionManagement
-@ComponentScan({ "com.len", "org.activiti" })
+@ComponentScan({"com.len", "org.activiti"})
 @MapperScan(basePackages = {"com.len.mapper"})
 @EnableDiscoveryClient
 @EnableAutoConfiguration(exclude = {
@@ -29,10 +29,12 @@ public class WebApplication {
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = SpringApplication.run(WebApplication.class, args);
-//    String[] names = applicationContext.getBeanDefinitionNames();
-        //1.8 forEach循环
-//    Arrays.asList(names).forEach(System.out::println);
-        System.out.println("Server start succ");
+        // String[] names = applicationContext.getBeanDefinitionNames();
+
+        // 1.8 forEach循环
+        // Arrays.asList(names).forEach(System.out::println);
+
+        System.out.println("Server start success");
     }
 
 

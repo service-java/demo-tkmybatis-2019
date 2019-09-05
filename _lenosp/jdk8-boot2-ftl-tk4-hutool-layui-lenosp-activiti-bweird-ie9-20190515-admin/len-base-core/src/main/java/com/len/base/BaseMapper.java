@@ -11,7 +11,10 @@ import java.util.List;
  * @email 154040976@qq.com
  * mapper封装 crud
  */
-public interface BaseMapper<T, E extends Serializable> extends tk.mybatis.mapper.common.Mapper<T>, LenInsertListAndinsertUseGeneratedKeysMapper<T>, IdsMapper<T> {
+public interface BaseMapper<T, E extends Serializable>
+        extends tk.mybatis.mapper.common.Mapper<T>,
+        LenInsertListAndinsertUseGeneratedKeysMapper<T>, IdsMapper<T> {
+
     /*
      *//**
      * 根据id删除
@@ -65,5 +68,6 @@ public interface BaseMapper<T, E extends Serializable> extends tk.mybatis.mapper
      */
 
 
+    // 查询
     List<T> selectListByPage(T record);
 }

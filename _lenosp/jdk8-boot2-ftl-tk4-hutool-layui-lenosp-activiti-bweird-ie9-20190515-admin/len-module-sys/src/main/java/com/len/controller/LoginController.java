@@ -32,7 +32,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 @Slf4j
-@Api(value = "登录业务",description="登录校验处理")
+@Api(value = "登录业务", description = "登录校验处理")
 public class LoginController {
 
     private static final String CODE_ERROR = "code.error";
@@ -81,7 +81,7 @@ public class LoginController {
      */
     @ApiOperation(value = "/login", httpMethod = "POST", notes = "登录method")
     @PostMapping(value = "/login")
-    public String login(SysUser user, String rememberMe, Model model,  HttpServletRequest request) {
+    public String login(SysUser user, String rememberMe, Model model, HttpServletRequest request) {
         String codeMsg = (String) request.getAttribute("shiroLoginFailure");
         if (CODE_ERROR.equals(codeMsg)) {
             model.addAttribute("message", "验证码错误");
@@ -89,9 +89,9 @@ public class LoginController {
         }
 
         CustomUsernamePasswordToken token = new CustomUsernamePasswordToken(
-            user.getUsername().trim(),
-            user.getPassword(),
-            "UserLogin"
+                user.getUsername().trim(),
+                user.getPassword(),
+                "UserLogin"
         );
 
         Subject subject = Principal.getSubject();

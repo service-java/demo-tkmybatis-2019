@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping("/job")
-@Api(value = "定时任务",description="定时任务")
+@Api(value = "定时任务", description = "定时任务")
 public class JobController extends BaseController<SysJob> {
 
     @Autowired

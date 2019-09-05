@@ -37,7 +37,7 @@ import java.util.List;
 //@Api(value="user")
 @Controller
 @RequestMapping(value = "/user")
-@Api(value = "用户管理",description="用户管理业务")
+@Api(value = "用户管理", description = "用户管理业务")
 public class UserController extends BaseController {
 
     //private static final Logger
